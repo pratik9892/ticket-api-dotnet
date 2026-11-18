@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:5080
+
+### Get all tickets
+GET {{baseUrl}}/api/tickets
+
+### Get one ticket
+GET {{baseUrl}}/api/tickets/1
+
+### Create a ticket
+POST {{baseUrl}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Damaged item received",
+  "customerEmail": "neha@example.com",
+  "priority": 1
+}
+
+### Update a ticket
+PUT {{baseUrl}}/api/tickets/1
+Content-Type: application/json
+
+{
+  "title": "Order not delivered",
+  "customerEmail": "riya@example.com",
+  "priority": 2,
+  "status": "Resolved"
+}
+
+### Delete a ticket
+DELETE {{baseUrl}}/api/tickets/2
+
+### Validation error (expect 400)
+POST {{baseUrl}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "",
+  "customerEmail": "not-an-email",
+  "priority": 9
+}
